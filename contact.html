@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact · Veloce Tech</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for full-width sections & responsiveness */
+        .map-container {
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+        }
+
+        .location-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 20px;
+        }
+
+        .location-item:last-child {
+            border-bottom: none;
+        }
+
+        .location-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--brand-primary);
+            margin-bottom: 10px;
+        }
+
+        /* FULL WIDTH SECTIONS (edge-to-edge) */
+        .full-width-section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: #ffffff;
+            padding: 3rem 0;
+        }
+
+        .full-width-section .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* Connect section subtle background */
+        .connect-section {
+            background: linear-gradient(120deg, #FDF8F2 0%, #fff5ef 100%);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Founders full width section */
+        .founders-full {
+            background: var(--bg-primary);
+        }
+
+        /* Social links styling (enhanced for full-width) */
+        .social-links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px 24px;
+            border-radius: 60px;
+            border: 1px solid var(--border-light);
+            transition: all 0.25s ease;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .social-link i {
+            font-size: 1.3rem;
+            width: 26px;
+            color: var(--brand-primary);
+        }
+
+        .social-link:hover {
+            background: var(--brand-primary);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--brand-primary);
+            box-shadow: 0 8px 20px rgba(199,61,43,0.15);
+        }
+
+        .social-link:hover i {
+            color: white;
+        }
+
+        .connect-heading {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .connect-sub {
+            text-align: center;
+            color: #5a6a7a;
+            font-size: 13px;
+            margin-bottom: 1rem;
+        }
+
+        /* Founders grid (full width consistency) */
+        .founders-section {
+            margin-top: 0;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .founder-card {
+            text-align: center;
+            background: white;
+            border-radius: 28px;
+            padding: 30px 24px;
+            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.2s;
+            border: 1px solid var(--border-light);
+        }
+
+        .founder-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -16px rgba(0, 0, 0, 0.12);
+        }
+
+        .founder-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--brand-primary);
+            box-shadow: 0 8px 20px rgba(199,61,43,0.2);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+
+        .founder-title {
+            color: var(--brand-primary);
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .founder-description {
+            font-size: 12px;
+            color: #4a5a6a;
+            line-height: 1.5;
+        }
+
+        /* Keep original contact grid responsive */
+        @media (max-width: 1024px) {
+            .founders-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .full-width-section {
+                padding: 2rem 0;
+            }
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .social-links-grid {
+                gap: 14px;
+            }
+            .social-link {
+                padding: 6px 18px;
+                font-size: 12px;
+            }
+            .connect-heading {
+                font-size: 1.6rem;
+            }
+            .founder-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Keep original contact info and form intact */
+        .contact-info .footer-contact-item {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: color 0.2s;
+        }
+        .contact-info a:hover {
+            color: var(--brand-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo-img">
+                <img src="veloce log.jpeg" alt="Veloce Tech Logo">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary btn-small">Start Project</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span
+                    class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero (kept inside container) -->
+        <section class="hero" style="padding-bottom: 20px;">
+            <div class="container">
+                <div class="hero-content" style="max-width: 100%; text-align: center;">
+                    <h1 class="hero-title">Get in <span class="title-accent">Touch</span></h1>
+                    <p class="hero-description" style="max-width: 800px; margin: 0 auto;">We'd love to hear about your
+                        project. Reach out and let's create something amazing together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main contact info + form (standard container width) -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- LEFT: Contact information -->
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+
+                        <!-- Email -->
+                        <div class="footer-contact-item" style="margin-bottom: 15px;">
+                            <i class="fas fa-envelope" style="color: var(--brand-primary);"></i>
+                            <a href="mailto:velocetechcompany@gmail.com">velocetechcompany@gmail.com</a>
+                        </div>
+
+                        <!-- Phone numbers -->
+                        <div class="footer-contact-item" style="margin-bottom: 15px; flex-wrap: wrap;">
+                            <i class="fas fa-phone" style="color: var(--brand-primary);"></i>
+                            <span>
+                                <a href="tel:+254787764095">+254 787 764 095</a> |
+                                <a href="tel:+254740682321">+254 740 682 321</a> |
+                                <a href="tel:+25472071853">+254 720 718 53</a>
+                            </span>
+                        </div>
+
+                        <!-- Nairobi Office -->
+                        <div class="location-item">
+                            <h4><i class="fas fa-map-marker-alt"></i> Nairobi Office</h4>
+                            <div class="footer-contact-item" style="margin-bottom: 8px;">
+                                <span>Westlands, Nairobi, Kenya</span>
+                            </div>
+                            <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.817648404454!2d36.80619497422618!3d-1.267149535597916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f172c2f1e2b0b%3A0x8b2e2b3c4d5e6f7!2sWestlands%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1712345678901!5m2!1sen!2ske"
+                                    allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- Narok Office -->
+                        <div class="location-item">
+                            <h4><i class="fas fa-map-marker-alt"></i> Narok Office</h4>
+                            <div class="footer-contact-item" style="margin-bottom: 8px;">
+                                <span>Narok Town, Narok County, Kenya</span>
+                            </div>
+                            <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.123456789012!2d35.871234!3d-1.091234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b8b2e2f2e2b0b%3A0x8b2e2b3c4d5e6f7!2sNarok%2C%20Kenya!5e0!3m2!1sen!2ske!4v1712345678902!5m2!1sen!2ske"
+                                    allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Contact Form with Phone Field -->
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <!-- Phone Number Field added below Name -->
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number ">
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" id="email" name="email" placeholder="Your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject *</label>
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <!-- Hidden fields for FormSubmit -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                            <div id="formStatus" style="margin-top: 15px; font-size: 13px;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FULL WIDTH: CONNECT WITH US ========== -->
+        <div class="full-width-section connect-section">
+            <div class="container">
+                <div class="connect-heading">
+                    <span class="title-accent">Connect</span> With Us
+                </div>
+                <div class="connect-sub">
+                    Follow us on social media for updates, inspiration, and tech insights.
+                </div>
+                <div class="social-links-grid">
+                    <a href="https://www.facebook.com/profile.php?id=61576404231383" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/velocetechcompany?igsh=dmxqd3Q2dGJ6Z2Np" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/@veloce_tech" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </a>
+                    <a href="https://x.com/veloce_tech" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-x"></i> X (Twitter)
+                    </a>
+                    <a href="https://linkedin.com/company/veloce-tech" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </div>
+                <p style="text-align: center; font-size: 12px; color: #5a6a7a; margin-top: 5px;">
+                    📩 velocetechcompany@gmail.com | ☎ +254 787 764 095
+                </p>
+            </div>
+        </div>
+
+        <!-- ========== FULL WIDTH: MEET THE FOUNDERS ========== -->
+        <div class="full-width-section founders-full">
+            <div class="container">
+                <div class="founders-section">
+                    <div class="section-header">
+                        <h2>Meet the <span class="title-accent">Founders</span></h2>
+                        <p class="section-subtitle">The visionaries behind Veloce Tech</p>
+                    </div>
+                    <div class="founders-grid">
+                        <!-- Founder 1: Edwin Mwenda -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="profile pic.JPG" alt="Edwin Mwenda">
+                            </div>
+                            <h3>Edwin Mwenda</h3>
+                            <div class="founder-title">Developer</div>
+                            <p class="founder-description">Edwin is a full-stack developer with over 10 years of
+                                experience in web technologies. He co-founded Veloce Tech to bridge the gap between
+                                creative design and robust development, ensuring every project delivers both beauty and
+                                performance.</p>
+                        </div>
+                        <!-- Founder 2: Edwin Muturi -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="Screenshot 2026-03-23 084357.png" alt="Edwin Muturi">
+                            </div>
+                            <h3>Edwin Muturi</h3>
+                            <div class="founder-title">Creative Director</div>
+                            <p class="founder-description">Muturi is an award-winning graphic designer who believes that
+                                every brand has a unique story to tell. With his keen eye for detail and passion for
+                                visual storytelling, he ensures that Veloce Tech's designs leave a lasting impression. He
+                                also is a specialized professional in the field of Agribusiness and holds a degree in
+                                Bachelor of science in agribusiness.</p>
+                        </div>
+                        <!-- Founder 3: Edward Muriki -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="eduu.jpeg" alt="Edward Muriki">
+                            </div>
+                            <h3>Edward Muriki</h3>
+                            <div class="founder-title">Strategy & Innovation Lead</div>
+                            <p class="founder-description">Edward combines business strategy with emerging technologies
+                                to create digital solutions that drive growth. He leads client engagements and ensures
+                                that every project aligns with the client's long-term goals and market trends. He also
+                                specializes in sales and marketing of varieties of products from agriculture to
+                                manufactured goods.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (unchanged) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>SF · Nairobi · Narok</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>velocetechcompany@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 787 764 095|+254 720 718 752</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development and graphic design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <a href="https://www.facebook.com/profile.php?id=61576404231383" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 14px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/velocetechcompany?igsh=dmxqd3Q2dGJ6Z2Np" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 14px;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/veloce_tech" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 14px;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@veloce_tech" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 14px;"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://linkedin.com/company/veloce-tech" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 14px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:velocetechcompany@gmail.com" style="color: white; font-size: 14px;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Veloce Tech Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/254740682321?text=Hello%20Veloce%20Tech%20Company%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <!-- Additional inline script to handle phone field submission -->
+    <script>
+        (function() {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+            if (contactForm && !contactForm.hasAttribute('data-listener')) {
+                contactForm.setAttribute('data-listener', 'true');
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name')?.value.trim() || '';
+                    const phone = document.getElementById('phone')?.value.trim() || '';
+                    const email = document.getElementById('email')?.value.trim() || '';
+                    const subject = document.getElementById('subject')?.value.trim() || '';
+                    const message = document.getElementById('message')?.value.trim() || '';
+                    
+                    // Basic validation: name, email, subject, message required (phone optional)
+                    if (!name || !email || !subject || !message) {
+                        if(formStatus) formStatus.innerHTML = '<div class="form-error">❌ Please fill in all required fields (Name, Email, Subject, Message).</div>';
+                        return;
+                    }
+                    if (!email.includes('@') || !email.includes('.')) {
+                        if(formStatus) formStatus.innerHTML = '<div class="form-error">❌ Please enter a valid email address.</div>';
+                        return;
+                    }
+                    if(submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Sending...';
+                    }
+                    if(formStatus) formStatus.innerHTML = '<div style="color: #666;">📧 Sending your message...</div>';
+                    
+                    const formData = new FormData();
+                    formData.append('name', name);
+                    formData.append('phone', phone);
+                    formData.append('email', email);
+                    formData.append('subject', subject);
+                    formData.append('message', message);
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    
+                    try {
+                        const response = await fetch('https://formsubmit.co/ajax/velocetechcompany@gmail.com', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const data = await response.json();
+                        if (response.ok) {
+                            if(formStatus) formStatus.innerHTML = '<div class="form-success">✅ Message sent successfully! We\'ll get back to you soon.</div>';
+                            contactForm.reset();
+                        } else {
+                            throw new Error('Failed to send');
+                        }
+                    } catch (error) {
+                        console.error('Form error:', error);
+                        if(formStatus) formStatus.innerHTML = '<div class="form-error">❌ Oops! Something went wrong. Please try again or email us directly at velocetechcompany@gmail.com</div>';
+                    } finally {
+                        if(submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        }
+                        setTimeout(() => {
+                            if(formStatus && formStatus.innerHTML.includes('successfully')) {
+                                formStatus.innerHTML = '';
+                            }
+                        }, 5000);
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
