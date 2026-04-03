@@ -502,7 +502,7 @@ img {
 /* ============================================ */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     margin: 20px 0;
 }
@@ -579,7 +579,7 @@ img {
 
 /* Hybrid grid (3 items) specific */
 .service-grid.hybrid-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 @media (min-width: 1200px) {
@@ -1249,5 +1249,17 @@ img {
     }
     .service-subcard h4 {
         font-size: 0.9rem;
+    }
+}
+
+/* ============================================ */
+/* EXTRA SMALL DEVICES (<= 480px)               */
+/* ============================================ */
+@media (max-width: 480px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-grid.hybrid-grid {
+        grid-template-columns: 1fr;
     }
 }
